@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState }  from "react";
+import "bootstrap";
 
 function App() {
+
+  const [state, setState] = useState(null);
+
+  let seleccionadonaranja = "";
+  let seleccionadorojo ="";
+   let seleccionadoverde = "";
+  if( state==="red" ){
+    seleccionadorojo = "picky";;
+  }else if( state==="orange" ){
+    seleccionadonaranja = "picky";
+  }else if( state ==="green" ){
+    seleccionadoverde = "picky";
+  }
+ 
+   
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="top">
+        <div className="row">
+          <div className="semaforo">
+            <div
+              className={"red " + seleccionadorojo}
+              onClick={() => {
+                setState("red");
+              }}
+            ></div>
+            <div
+              className={"orange " + seleccionadonaranja}
+              onClick={() => {
+                setState("orange");
+              }}
+            ></div>
+            <div
+              className={"green " + seleccionadoverde}
+              onClick={() => {
+                setState("green");
+              }}
+            ></div>
+          </div>
+        </div>
+      </div>
+    </>
   );
+  
 }
 
 export default App;
